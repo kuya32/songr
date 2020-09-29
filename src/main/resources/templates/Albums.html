@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>
+        This is just the beginning of the page.
+    </h1>
+    <br>
+    <br>
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Song Count</th>
+            <th>Album Length</th>
+            <th>Album Cover</th>
+        </tr>
+
+        <tr th:each="album : ${albumMod}">
+            <td th:text="${album.title}"></td>
+            <td th:text="${album.artist}"></td>
+            <td th:text="${album.songCount}"></td>
+            <td th:text="${album.length}"></td>
+            <td><img th:src="${album.imgUrl}" alt="Song Album Picture" src=""></td>
+        </tr>
+    </table>
+
+</body>
+</html>
