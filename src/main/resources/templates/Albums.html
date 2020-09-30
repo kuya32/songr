@@ -10,10 +10,17 @@
 </head>
 <body>
     <h1>
-        This is just the beginning of the page.
+        Top Albums of the Week
     </h1>
-    <br>
-    <br>
+
+    <form action="/albums" method="POST">
+        Title: <input type="text" name="title">
+        Artist: <input type="text" name="artist">
+        Song Count (between 1 and 50): <input type="number" name="songCount" min="1" max="50" value="1">
+        Album Length: <input type="text" name="length">
+        Album Cover: <input type="text" name="imgUrl">
+        <input type="submit">
+    </form>
 
     <table>
         <tr>
@@ -24,7 +31,7 @@
             <th>Album Cover</th>
         </tr>
 
-        <tr th:each="album : ${albumMod}">
+        <tr th:each="album : ${Albums}">
             <td th:text="${album.title}"></td>
             <td th:text="${album.artist}"></td>
             <td th:text="${album.songCount}"></td>
