@@ -1,19 +1,22 @@
 package garhettM.songr;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    public long id;
 
     String title;
+
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
+    public List<Song> songs = new ArrayList<Song>();
+
     String artist;
     int songCount;
     int length;
