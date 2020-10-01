@@ -16,6 +16,15 @@ public class AlbumController {
     @Autowired
     public AlbumRepository albumRepository;
 
+    @Autowired
+    public SongRepository songRepository;
+
+    @PostMapping("/albums/delete/{id}")
+    public RedirectView removeAlbum(@PathVariable long id) {
+        albumRepository.deleteById(id);
+        return new RedirectView("/albums");
+    }
+
     @PostMapping("/albums")
     public RedirectView addAlbum(String title, String artist, int songCount, int length, String imgUrl) {
         Album newAlbum = new Album(
@@ -26,7 +35,11 @@ public class AlbumController {
                 imgUrl
         );
 
+        Song newSong = new Song(newAlbum, "", 0, 0);
+        newAlbum.songs.add(newSong);
+
         albumRepository.save(newAlbum);
+        songRepository.save(newSong);
 
         return new RedirectView("/albums");
     }

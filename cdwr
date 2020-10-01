@@ -1,0 +1,5 @@
+ id |     artist     | game_time  |                                                     img_url                                                     | length | song_count | title 
+----+----------------+------------+-----------------------------------------------------------------------------------------------------------------+--------+------------+-------
+  1 | Anderson .Paak | 2020-09-29 | https://cdn.shopify.com/s/files/1/0809/6147/products/AP_Malibu_Cover_Flat_APPROVED_Web_28NOV15.jpg?v=1450905558 |    754 |         15 | Views
+(1 row)
+
