@@ -39,21 +39,16 @@
             <td th:text="${album.songCount}"></td>
             <td th:text="${album.length}"></td>
             <td><img th:src="${album.imgUrl}" alt="Song Album Picture" src=""></td>
-            <td th:each="song : ${album.songs}" th:text="${song.songTitle}"></td>
             <td th:if="${album.songs.size() > 0}" th:text="${album.songs.get(0).songTitle}"></td>
             <td>
-                <form th:action="'/albums/delete/' + ${album.id}" method="POST">
-                    <input type="submit" value="This album is wack">
+                <form action="/album" method="GET">
+                    <input type="hidden" name="albumId" th:value="${album.id}">
+                    <input type="submit" value="Album Details">
                 </form>
             </td>
             <td>
-                <form action="/song" method="POST">
-                    <input type="hidden" name="albumId" th:value="${album.id}">
-                    Song : <input type="text" name="songTitle">
-                    Song Length: <input type="text" name="songLength">
-                    Track Number: <input type="number" name="trackNumber" min="1" max="50"
-                                         value="1">
-                    <input type="submit" value="Add song">
+                <form th:action="'/albums/delete/' + ${album.id}" method="POST">
+                    <input type="submit" value="This album is wack">
                 </form>
             </td>
         </tr>
