@@ -12,11 +12,10 @@ public class Album {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
 
-    String title;
-
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     public List<Song> songs = new ArrayList<Song>();
 
+    String title;
     String artist;
     int songCount;
     int length;

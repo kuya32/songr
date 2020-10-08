@@ -1,21 +1,21 @@
-### Lab 11
+# Lab 11
 
-###### Done by Garhett Morgan and Marchael Acode
+## Done by Garhett Morgan and Marchael Acode
 
-To access the application. You must open it in Intellij and open your browser to localhost:8080
+## Instructions
 
-Home route "/":
+1. To access the application. You must open it in Intellij and change application.properties file to personal information to access database.
 
-This will send you to our homepage.
+2. Open your browser to localhost:8080
 
-Hello route "/hello":
+3. Home route "/":
+  This will send you to our homepage.
 
-This will send to the page displaying Hello!
+4. Hello route "/hello":
+  This will send to the page displaying Hello!
 
-Albums route "/albums":
+5. Albums route "/albums":
+  This will send you to the hard coded three albums we have selected.
 
-This will send you to the hard coded three albums we have selected.
-
-Capitalize route "/capitalize/{anything}":
-
-This route will take the string after the "capitalize/" and make all the characters in the string uppercase and display them. 
+6. Capitalize route "/capitalize/{anything}":
+  This route will take the string after the "capitalize/" and make all the characters in the string uppercase and display them.
