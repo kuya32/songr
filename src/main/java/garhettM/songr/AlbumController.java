@@ -35,11 +35,7 @@ public class AlbumController {
                 imgUrl
         );
 
-        Song newSong = new Song(newAlbum, "", 0, 0);
-        newAlbum.songs.add(newSong);
-
         albumRepository.save(newAlbum);
-        songRepository.save(newSong);
 
         return new RedirectView("/albums");
     }
@@ -52,5 +48,12 @@ public class AlbumController {
 //        newAlbum.add(new Album("Malibu", "Anderson.PaaK", 29, 2837, "https://cdn.shopify.com/s/files/1/0809/6147/products/AP_Malibu_Cover_Flat_APPROVED_Web_28NOV15.jpg?v=1450905558"));
         albumMod.addAttribute("Albums", albums);
         return "Albums";
+    }
+
+    @GetMapping("/album")
+    public String showAlbum(Model albumMod, @RequestParam("albumId") long albumId) {
+        Album album = albumRepository.getOne(albumId);
+        albumMod.addAttribute("album", album);
+        return "album";
     }
 }

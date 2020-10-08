@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/albums" method="GET">
+        <input type="submit" value="Back to Albums";
+    </form>
+    <div>
+        <img th:src="${album.imgUrl}" alt="Album Cover Picture">
+        <p th:text="${album.title}">Title</p>
+        <p th:text="${album.artist}">Artist</p>
+        <p th:text="${album.songCount}">Song Count</p>
+        <p th:text="${album.length}">Length</p>
+        <h2>Songs:</h2>
+        <ul>
+            <li th:each="song : ${album.songs}" th:text="${song.songTitle}"></li>
+        </ul>
+        <form action="/song" method="POST">
+            <input type="hidden" name="albumId" th:value="${album.id}">
+            Song : <input type="text" name="songTitle">
+            Song Length: <input type="text" name="songLength">
+            Track Number: <input type="number" name="trackNumber" min="1" max="50" value="1">
+            <input type="submit" value="Add song">
+        </form>
+    </div>
+</body>
+</html>
